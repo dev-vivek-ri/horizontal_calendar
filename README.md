@@ -3,7 +3,6 @@
 [![codecov](https://codecov.io/gh/solutelabs/horizontal_calendar/branch/master/graph/badge.svg)](https://app.codecov.io/gh/dev-vivek-ri/horizontal_calendar) [![devMonkey](https://img.shields.io/badge/made%20by-devMonkey-brightgreen)](https://www.devmonkey.in/) [![Twitter Follow](https://img.shields.io/badge/Twitter-devMonkey-blue)](https://twitter.com/devMonkey1)
 
 Easy to use, highly customizable horizontal calendar.
-
 Forked from solutelabs
 
 ## Features
