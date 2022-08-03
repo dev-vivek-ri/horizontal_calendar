@@ -89,7 +89,7 @@ class _DemoWidgetState extends State<DemoWidget> {
       if (selectedDates.length == target) {
         break;
       }
-      DateTime date = firstDate.add(Duration(days: i));
+      DateTime date = DateTime.now().add(Duration(days: 10));
       if (date.weekday != DateTime.sunday) {
         selectedDates.add(date);
       }

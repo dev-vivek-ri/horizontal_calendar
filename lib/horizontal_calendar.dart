@@ -1,8 +1,10 @@
 library horizontal_calendar;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:horizontal_calendar_view_widget/date_helper.dart';
 import 'package:horizontal_calendar_view_widget/date_widget.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 typedef DateBuilder = bool Function(DateTime dateTime);
 
@@ -30,7 +32,7 @@ class HorizontalCalendar extends StatefulWidget {
   final Decoration? disabledDecoration;
   final DateBuilder? isDateDisabled;
   final List<DateTime>? initialSelectedDates;
-  final ScrollController? scrollController;
+  final ItemScrollController? scrollController;
   final double? spacingBetweenDates;
   final EdgeInsetsGeometry? padding;
   final List<LabelType>? labelOrder;
@@ -94,21 +96,39 @@ class HorizontalCalendar extends StatefulWidget {
 class _HorizontalCalendarState extends State<HorizontalCalendar> {
   final List<DateTime> allDates = [];
   final List<DateTime> selectedDates = [];
+  ItemScrollController? scrollController;
 
   @override
   void initState() {
     super.initState();
     allDates.addAll(getDateList(widget.firstDate!, widget.lastDate!));
     selectedDates.addAll(widget.initialSelectedDates!.map((toDateMonthYear)));
+    scrollController = widget.scrollController ?? ItemScrollController();
+     SchedulerBinding.instance.addPostFrameCallback((_) {
+     if (scrollController != null) scrollController!.jumpTo(index: findPosition());
+    });
+  }
+
+  int findPosition() {
+    int i = 0;
+    for (DateTime element in allDates) {
+      if (element.microsecondsSinceEpoch ==
+          selectedDates.first.microsecondsSinceEpoch) {
+        return i;
+      }
+      i = i + 1;
+    }
+    return i;
   }
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       height: widget.height,
       child: Center(
-        child: ListView.builder(
-          controller: widget.scrollController ?? ScrollController(),
+        child: ScrollablePositionedList.builder(
+          itemScrollController: scrollController,
           scrollDirection: Axis.horizontal,
           itemCount: allDates.length,
           itemBuilder: (context, index) {
