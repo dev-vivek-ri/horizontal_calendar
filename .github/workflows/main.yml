@@ -22,5 +22,6 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@v3.1.0
         with:
+          files: ../../test/horizontal_calendar_test.dart
           token: ${{ secrets.CODECOV_TOKEN }}
           
