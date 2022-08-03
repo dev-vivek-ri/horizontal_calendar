@@ -1,3 +1,7 @@
+## [2.1.2]
+
+- Test Coverage
+
 ## [2.1.1]
 
 - Test Coverage
