@@ -19,9 +19,30 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Codecov
-        uses: codecov/codecov-action@v3.1.0
-        with:
-          files: ../../test/horizontal_calendar_test.dart
-          token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Install and set Flutter version
+      uses: subosito/flutter-action@v1.4.0
+      with:
+        flutter-version: '2.0.1'
+
+    - name: Restore packages
+      run: flutter pub get
+
+    - name: Analyze
+      run: flutter analyze
+
+    - name: Run tests
+      run: flutter test --coverage
+
+    - name: Codecov
+      uses: codecov/codecov-action@v3.1.0
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: Upload coverage to codecov
+      run: curl -s https://codecov.io/bash
+      shell: bash
+    
+    - name: Upload coverage to codecov
+      run: curl -s https://codecov.io/bash -t $
+      shell: bash
           
