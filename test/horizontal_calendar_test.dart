@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, prefer_function_declarations_over_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:horizontal_calendar_view_widget/horizontal_calendar.dart';
@@ -11,11 +13,11 @@ void main() {
                 MaterialApp(
                   home: Scaffold(
                     body: Directionality(
+                      textDirection: TextDirection.ltr,
                       child: HorizontalCalendar(
                         firstDate: null,
                         lastDate: DateTime(2019, 11, 20),
                       ),
-                      textDirection: TextDirection.ltr,
                     ),
                   ),
                 ),
@@ -32,11 +34,11 @@ void main() {
                 MaterialApp(
                   home: Scaffold(
                     body: Directionality(
+                      textDirection: TextDirection.ltr,
                       child: HorizontalCalendar(
                         firstDate: DateTime(2019, 11, 20),
                         lastDate: null,
                       ),
-                      textDirection: TextDirection.ltr,
                     ),
                   ),
                 ),
@@ -53,12 +55,12 @@ void main() {
                 MaterialApp(
                   home: Scaffold(
                     body: Directionality(
+                      textDirection: TextDirection.ltr,
                       child: HorizontalCalendar(
                         firstDate: DateTime(2019, 11, 20),
                         lastDate: null,
                         labelOrder: null,
                       ),
-                      textDirection: TextDirection.ltr,
                     ),
                   ),
                 ),
@@ -75,12 +77,12 @@ void main() {
                 MaterialApp(
                   home: Scaffold(
                     body: Directionality(
+                      textDirection: TextDirection.ltr,
                       child: HorizontalCalendar(
                         firstDate: DateTime(2019, 11, 20),
                         lastDate: null,
-                        labelOrder: [],
+                        labelOrder: const [],
                       ),
-                      textDirection: TextDirection.ltr,
                     ),
                   ),
                 ),
@@ -97,13 +99,13 @@ void main() {
                 MaterialApp(
                   home: Scaffold(
                     body: Directionality(
+                      textDirection: TextDirection.ltr,
                       child: HorizontalCalendar(
                         firstDate: DateTime(2020, 03, 04),
                         lastDate: DateTime(2020, 03, 08),
                         minSelectedDateCount: 2,
                         maxSelectedDateCount: 1,
                       ),
-                      textDirection: TextDirection.ltr,
                     ),
                   ),
                 ),
@@ -120,6 +122,7 @@ void main() {
                 MaterialApp(
                   home: Scaffold(
                     body: Directionality(
+                      textDirection: TextDirection.ltr,
                       child: HorizontalCalendar(
                         firstDate: DateTime(2020, 03, 04),
                         lastDate: DateTime(2020, 03, 08),
@@ -129,7 +132,6 @@ void main() {
                           DateTime(2020, 03, 04),
                         ],
                       ),
-                      textDirection: TextDirection.ltr,
                     ),
                   ),
                 ),
@@ -146,6 +148,7 @@ void main() {
                 MaterialApp(
                   home: Scaffold(
                     body: Directionality(
+                      textDirection: TextDirection.ltr,
                       child: HorizontalCalendar(
                         firstDate: DateTime(2020, 03, 04),
                         lastDate: DateTime(2020, 03, 08),
@@ -156,7 +159,6 @@ void main() {
                           DateTime(2020, 03, 06),
                         ],
                       ),
-                      textDirection: TextDirection.ltr,
                     ),
                   ),
                 ),
@@ -170,13 +172,13 @@ void main() {
     await tester.pumpWidget(MaterialApp(
         home: Scaffold(
       body: Directionality(
+        textDirection: TextDirection.ltr,
         child: HorizontalCalendar(
           firstDate: DateTime(2019, 11, 17),
           lastDate: DateTime(2019, 11, 20),
           monthFormat: 'MMM',
           weekDayFormat: 'EEE',
         ),
-        textDirection: TextDirection.ltr,
       ),
     )));
 
@@ -202,20 +204,21 @@ void main() {
   testWidgets(
     'Default / Selected / Disabled widgets should render as per arguments',
     (WidgetTester tester) async {
-      final dateDecoration = BoxDecoration(
+      const dateDecoration = BoxDecoration(
         color: Colors.blue,
       );
-      final selectedDateDecoration = BoxDecoration(
+      const selectedDateDecoration = BoxDecoration(
         color: Colors.green,
       );
 
-      final disabledDateDecoration = BoxDecoration(
+      const disabledDateDecoration = BoxDecoration(
         color: Colors.grey,
       );
 
       await tester.pumpWidget(MaterialApp(
         home: Scaffold(
           body: Directionality(
+            textDirection: TextDirection.ltr,
             child: HorizontalCalendar(
               firstDate: DateTime(2019, 11, 17),
               lastDate: DateTime(2019, 11, 19),
@@ -226,7 +229,6 @@ void main() {
               isDateDisabled: (date) =>
                   date.compareTo(DateTime(2019, 11, 19)) == 0,
             ),
-            textDirection: TextDirection.ltr,
           ),
         ),
       ));
@@ -247,14 +249,14 @@ void main() {
   testWidgets(
     'State should change after tapping any of date',
     (WidgetTester tester) async {
-      final dateDecoration = BoxDecoration(
+      const dateDecoration = BoxDecoration(
         color: Colors.blue,
       );
-      final selectedDateDecoration = BoxDecoration(
+      const selectedDateDecoration = BoxDecoration(
         color: Colors.green,
       );
 
-      final disabledDateDecoration = BoxDecoration(
+      const disabledDateDecoration = BoxDecoration(
         color: Colors.grey,
       );
 
@@ -262,6 +264,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: Directionality(
+              textDirection: TextDirection.ltr,
               child: HorizontalCalendar(
                 firstDate: DateTime(2019, 11, 17),
                 lastDate: DateTime(2019, 11, 19),
@@ -276,7 +279,6 @@ void main() {
                 onDateLongTap: (date) => print("L:$date"),
                 maxSelectedDateCount: 2,
               ),
-              textDirection: TextDirection.ltr,
             ),
           ),
         ),
@@ -312,14 +314,14 @@ void main() {
     only one date should be selected at a time. 
     On select new date, previous date should be unselected''',
     (WidgetTester tester) async {
-      final dateDecoration = BoxDecoration(
+      const dateDecoration = BoxDecoration(
         color: Colors.blue,
       );
-      final selectedDateDecoration = BoxDecoration(
+      const selectedDateDecoration = BoxDecoration(
         color: Colors.green,
       );
 
-      final disabledDateDecoration = BoxDecoration(
+      const disabledDateDecoration = BoxDecoration(
         color: Colors.grey,
       );
 
@@ -327,6 +329,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: Directionality(
+              textDirection: TextDirection.ltr,
               child: HorizontalCalendar(
                 firstDate: DateTime(2019, 11, 17),
                 lastDate: DateTime(2019, 11, 19),
@@ -340,7 +343,6 @@ void main() {
                 onDateLongTap: (date) => print("L:$date"),
                 maxSelectedDateCount: 1,
               ),
-              textDirection: TextDirection.ltr,
             ),
           ),
         ),
@@ -377,14 +379,14 @@ void main() {
     only two dates should be selected at a time. 
     If max count reached, new dates should not be selected''',
     (WidgetTester tester) async {
-      final dateDecoration = BoxDecoration(
+      const dateDecoration = BoxDecoration(
         color: Colors.blue,
       );
-      final selectedDateDecoration = BoxDecoration(
+      const selectedDateDecoration = BoxDecoration(
         color: Colors.green,
       );
 
-      final disabledDateDecoration = BoxDecoration(
+      const disabledDateDecoration = BoxDecoration(
         color: Colors.grey,
       );
 
@@ -392,6 +394,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: Directionality(
+              textDirection: TextDirection.ltr,
               child: HorizontalCalendar(
                 firstDate: DateTime(2019, 11, 17),
                 lastDate: DateTime(2019, 11, 19),
@@ -403,7 +406,6 @@ void main() {
                 onDateLongTap: (date) => print("L:$date"),
                 maxSelectedDateCount: 2,
               ),
-              textDirection: TextDirection.ltr,
             ),
           ),
         ),
@@ -433,14 +435,14 @@ void main() {
     '''Case: minSelectedDateCount = 1 and maxSelectedDateCount = 1. 
     one and only one date should be always selected.''',
     (WidgetTester tester) async {
-      final dateDecoration = BoxDecoration(
+      const dateDecoration = BoxDecoration(
         color: Colors.blue,
       );
-      final selectedDateDecoration = BoxDecoration(
+      const selectedDateDecoration = BoxDecoration(
         color: Colors.green,
       );
 
-      final disabledDateDecoration = BoxDecoration(
+      const disabledDateDecoration = BoxDecoration(
         color: Colors.grey,
       );
 
@@ -448,6 +450,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: Directionality(
+              textDirection: TextDirection.ltr,
               child: HorizontalCalendar(
                 firstDate: DateTime(2020, 03, 04),
                 lastDate: DateTime(2020, 03, 08),
@@ -463,7 +466,6 @@ void main() {
                   DateTime(2020, 03, 05),
                 ],
               ),
-              textDirection: TextDirection.ltr,
             ),
           ),
         ),
@@ -493,6 +495,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: Directionality(
+              textDirection: TextDirection.ltr,
               child: HorizontalCalendar(
                 firstDate: DateTime(2019, 11, 17),
                 lastDate: DateTime(2019, 11, 19),
@@ -503,7 +506,6 @@ void main() {
                 onDateUnSelected: (date) => print("U:$date"),
                 onDateLongTap: (date) => print("L:$date"),
               ),
-              textDirection: TextDirection.ltr,
             ),
           ),
         ),
@@ -524,6 +526,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: Directionality(
+              textDirection: TextDirection.ltr,
               child: HorizontalCalendar(
                 firstDate: DateTime(2019, 11, 17),
                 lastDate: DateTime(2019, 11, 19),
@@ -534,7 +537,6 @@ void main() {
                 onDateUnSelected: (date) => print("U:$date"),
                 onDateLongTap: (date) => print("L:$date"),
               ),
-              textDirection: TextDirection.ltr,
             ),
           ),
         ),
@@ -555,6 +557,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: Directionality(
+              textDirection: TextDirection.ltr,
               child: HorizontalCalendar(
                 firstDate: DateTime(2019, 11, 17),
                 lastDate: DateTime(2019, 11, 19),
@@ -565,7 +568,6 @@ void main() {
                 onDateUnSelected: (date) => print("U:$date"),
                 onDateLongTap: (date) => print("L:$date"),
               ),
-              textDirection: TextDirection.ltr,
             ),
           ),
         ),
@@ -586,6 +588,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: Directionality(
+              textDirection: TextDirection.ltr,
               child: HorizontalCalendar(
                 firstDate: DateTime(2019, 11, 17),
                 lastDate: DateTime(2019, 11, 19),
@@ -594,7 +597,6 @@ void main() {
                 onMaxDateSelectionReached: () => print("MAX_SELCTION"),
                 maxSelectedDateCount: 0,
               ),
-              textDirection: TextDirection.ltr,
             ),
           ),
         ),

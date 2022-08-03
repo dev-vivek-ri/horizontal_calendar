@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_function_declarations_over_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:horizontal_calendar_view_widget/date_helper.dart';
@@ -15,12 +17,12 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(
       Directionality(
+        textDirection: TextDirection.ltr,
         child: DateWidget(
           date: DateTime(2019, 11, 17),
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           labelOrder: defaultLabelOrder,
         ),
-        textDirection: TextDirection.ltr,
       ),
     );
 
@@ -37,15 +39,15 @@ void main() {
     (WidgetTester tester) async {
       await tester.pumpWidget(
         Directionality(
+          textDirection: TextDirection.ltr,
           child: DateWidget(
             date: DateTime(2019, 11, 17),
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             dateFormat: 'dd/MMM',
             monthFormat: 'MM',
             weekDayFormat: 'EEEE',
             labelOrder: defaultLabelOrder,
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -61,22 +63,22 @@ void main() {
   testWidgets(
     'Default decoration should be applied to Date / month / weekday if not selected',
     (WidgetTester tester) async {
-      final dateDecoration = BoxDecoration(
+      const dateDecoration = BoxDecoration(
         color: Colors.blue,
       );
 
       await tester.pumpWidget(
         Directionality(
+          textDirection: TextDirection.ltr,
           child: DateWidget(
             date: DateTime(2019, 11, 17),
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             dateFormat: null,
             monthFormat: null,
             weekDayFormat: null,
             defaultDecoration: dateDecoration,
             labelOrder: defaultLabelOrder,
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -89,15 +91,16 @@ void main() {
   testWidgets(
     'Selected decoration should be applied to Date / month / weekday is selected',
     (WidgetTester tester) async {
-      final dateDecoration = BoxDecoration(
+      const dateDecoration = BoxDecoration(
         color: Colors.blue,
       );
 
       await tester.pumpWidget(
         Directionality(
+          textDirection: TextDirection.ltr,
           child: DateWidget(
             date: DateTime(2019, 11, 17),
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             dateFormat: null,
             monthFormat: null,
             weekDayFormat: null,
@@ -105,7 +108,6 @@ void main() {
             isSelected: true,
             labelOrder: defaultLabelOrder,
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -118,17 +120,18 @@ void main() {
   testWidgets(
     'Disabled decoration should be applied to Date / month / weekday if is disabled',
     (WidgetTester tester) async {
-      final dateDecoration = BoxDecoration(
+      const dateDecoration = BoxDecoration(
         color: Colors.blue,
       );
 
-      final style = TextStyle(color: Colors.white);
+      const style = TextStyle(color: Colors.white);
 
       await tester.pumpWidget(
         Directionality(
+          textDirection: TextDirection.ltr,
           child: DateWidget(
             date: DateTime(2019, 11, 17),
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             dateFormat: null,
             monthFormat: null,
             weekDayFormat: null,
@@ -137,7 +140,6 @@ void main() {
             dateTextStyle: style,
             labelOrder: defaultLabelOrder,
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -154,23 +156,24 @@ void main() {
   testWidgets(
     'Default Date with all properties',
     (WidgetTester tester) async {
-      final defaultDecoration = BoxDecoration(
+      const defaultDecoration = BoxDecoration(
         color: Colors.blue,
       );
 
-      final padding = EdgeInsets.symmetric(horizontal: 8);
+      const padding = EdgeInsets.symmetric(horizontal: 8);
 
-      final monthStyle = TextStyle(color: Colors.white);
-      final monthFormat = 'MM';
+      const monthStyle = TextStyle(color: Colors.white);
+      const monthFormat = 'MM';
 
-      final dateStyle = TextStyle(color: Colors.black);
-      final dateFormat = 'dd/MM';
+      const dateStyle = TextStyle(color: Colors.black);
+      const dateFormat = 'dd/MM';
 
-      final weekDayStyle = TextStyle(color: Colors.green);
-      final weekDayFormat = 'EEE';
+      const weekDayStyle = TextStyle(color: Colors.green);
+      const weekDayFormat = 'EEE';
 
       await tester.pumpWidget(
         Directionality(
+          textDirection: TextDirection.ltr,
           child: DateWidget(
             date: DateTime(2019, 11, 17),
             padding: padding,
@@ -183,7 +186,6 @@ void main() {
             defaultDecoration: defaultDecoration,
             labelOrder: defaultLabelOrder,
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -212,16 +214,16 @@ void main() {
     (WidgetTester tester) async {
       await tester.pumpWidget(
         Directionality(
+          textDirection: TextDirection.ltr,
           child: DateWidget(
             date: DateTime(2019, 11, 17),
-            padding: EdgeInsets.all(8),
-            labelOrder: [
+            padding: const EdgeInsets.all(8),
+            labelOrder: const [
               LabelType.date,
               LabelType.month,
             ],
             dateTextStyle: null,
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 

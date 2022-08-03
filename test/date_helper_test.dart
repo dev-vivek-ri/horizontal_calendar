@@ -17,10 +17,10 @@ void main() {
   test('Return date lists of in between days', () {
     final expected = [
       _toDateMonthYear(DateTime.now()),
-      _toDateMonthYear(DateTime.now().add(Duration(days: 1))),
+      _toDateMonthYear(DateTime.now().add(const Duration(days: 1))),
     ];
     final list =
-        getDateList(DateTime.now(), DateTime.now().add(Duration(days: 1)));
+        getDateList(DateTime.now(), DateTime.now().add(const Duration(days: 1)));
     expect(list, expected);
   });
 
