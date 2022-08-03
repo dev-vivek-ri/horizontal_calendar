@@ -8,12 +8,16 @@ void main() {
     (WidgetTester tester) async {
       expectLater(
           () => tester.pumpWidget(
-                Directionality(
-                  child: HorizontalCalendar(
-                    firstDate: null,
-                    lastDate: DateTime(2019, 11, 20),
+                MaterialApp(
+                  home: Scaffold(
+                    body: Directionality(
+                      child: HorizontalCalendar(
+                        firstDate: null,
+                        lastDate: DateTime(2019, 11, 20),
+                      ),
+                      textDirection: TextDirection.ltr,
+                    ),
                   ),
-                  textDirection: TextDirection.ltr,
                 ),
               ),
           throwsAssertionError);
@@ -25,12 +29,16 @@ void main() {
     (WidgetTester tester) async {
       expectLater(
           () => tester.pumpWidget(
-                Directionality(
-                  child: HorizontalCalendar(
-                    firstDate: DateTime(2019, 11, 20),
-                    lastDate: null,
+                MaterialApp(
+                  home: Scaffold(
+                    body: Directionality(
+                      child: HorizontalCalendar(
+                        firstDate: DateTime(2019, 11, 20),
+                        lastDate: null,
+                      ),
+                      textDirection: TextDirection.ltr,
+                    ),
                   ),
-                  textDirection: TextDirection.ltr,
                 ),
               ),
           throwsAssertionError);
@@ -42,13 +50,17 @@ void main() {
     (WidgetTester tester) async {
       expectLater(
           () => tester.pumpWidget(
-                Directionality(
-                  child: HorizontalCalendar(
-                    firstDate: DateTime(2019, 11, 20),
-                    lastDate: null,
-                    labelOrder: null,
+                MaterialApp(
+                  home: Scaffold(
+                    body: Directionality(
+                      child: HorizontalCalendar(
+                        firstDate: DateTime(2019, 11, 20),
+                        lastDate: null,
+                        labelOrder: null,
+                      ),
+                      textDirection: TextDirection.ltr,
+                    ),
                   ),
-                  textDirection: TextDirection.ltr,
                 ),
               ),
           throwsAssertionError);
@@ -60,13 +72,17 @@ void main() {
     (WidgetTester tester) async {
       expectLater(
           () => tester.pumpWidget(
-                Directionality(
-                  child: HorizontalCalendar(
-                    firstDate: DateTime(2019, 11, 20),
-                    lastDate: null,
-                    labelOrder: [],
+                MaterialApp(
+                  home: Scaffold(
+                    body: Directionality(
+                      child: HorizontalCalendar(
+                        firstDate: DateTime(2019, 11, 20),
+                        lastDate: null,
+                        labelOrder: [],
+                      ),
+                      textDirection: TextDirection.ltr,
+                    ),
                   ),
-                  textDirection: TextDirection.ltr,
                 ),
               ),
           throwsAssertionError);
@@ -78,14 +94,18 @@ void main() {
     (WidgetTester tester) async {
       expectLater(
           () => tester.pumpWidget(
-                Directionality(
-                  child: HorizontalCalendar(
-                    firstDate: DateTime(2020, 03, 04),
-                    lastDate: DateTime(2020, 03, 08),
-                    minSelectedDateCount: 2,
-                    maxSelectedDateCount: 1,
+                MaterialApp(
+                  home: Scaffold(
+                    body: Directionality(
+                      child: HorizontalCalendar(
+                        firstDate: DateTime(2020, 03, 04),
+                        lastDate: DateTime(2020, 03, 08),
+                        minSelectedDateCount: 2,
+                        maxSelectedDateCount: 1,
+                      ),
+                      textDirection: TextDirection.ltr,
+                    ),
                   ),
-                  textDirection: TextDirection.ltr,
                 ),
               ),
           throwsAssertionError);
@@ -97,17 +117,21 @@ void main() {
     (WidgetTester tester) async {
       expectLater(
           () => tester.pumpWidget(
-                Directionality(
-                  child: HorizontalCalendar(
-                    firstDate: DateTime(2020, 03, 04),
-                    lastDate: DateTime(2020, 03, 08),
-                    minSelectedDateCount: 2,
-                    maxSelectedDateCount: 3,
-                    initialSelectedDates: [
-                      DateTime(2020, 03, 04),
-                    ],
+                MaterialApp(
+                  home: Scaffold(
+                    body: Directionality(
+                      child: HorizontalCalendar(
+                        firstDate: DateTime(2020, 03, 04),
+                        lastDate: DateTime(2020, 03, 08),
+                        minSelectedDateCount: 2,
+                        maxSelectedDateCount: 3,
+                        initialSelectedDates: [
+                          DateTime(2020, 03, 04),
+                        ],
+                      ),
+                      textDirection: TextDirection.ltr,
+                    ),
                   ),
-                  textDirection: TextDirection.ltr,
                 ),
               ),
           throwsAssertionError);
@@ -119,18 +143,22 @@ void main() {
     (WidgetTester tester) async {
       expectLater(
           () => tester.pumpWidget(
-                Directionality(
-                  child: HorizontalCalendar(
-                    firstDate: DateTime(2020, 03, 04),
-                    lastDate: DateTime(2020, 03, 08),
-                    maxSelectedDateCount: 2,
-                    initialSelectedDates: [
-                      DateTime(2020, 03, 04),
-                      DateTime(2020, 03, 05),
-                      DateTime(2020, 03, 06),
-                    ],
+                MaterialApp(
+                  home: Scaffold(
+                    body: Directionality(
+                      child: HorizontalCalendar(
+                        firstDate: DateTime(2020, 03, 04),
+                        lastDate: DateTime(2020, 03, 08),
+                        maxSelectedDateCount: 2,
+                        initialSelectedDates: [
+                          DateTime(2020, 03, 04),
+                          DateTime(2020, 03, 05),
+                          DateTime(2020, 03, 06),
+                        ],
+                      ),
+                      textDirection: TextDirection.ltr,
+                    ),
                   ),
-                  textDirection: TextDirection.ltr,
                 ),
               ),
           throwsAssertionError);
@@ -139,8 +167,9 @@ void main() {
 
   testWidgets('Should render N widgets as provided start & end date',
       (WidgetTester tester) async {
-    await tester.pumpWidget(
-      Directionality(
+    await tester.pumpWidget(MaterialApp(
+        home: Scaffold(
+      body: Directionality(
         child: HorizontalCalendar(
           firstDate: DateTime(2019, 11, 17),
           lastDate: DateTime(2019, 11, 20),
@@ -149,7 +178,7 @@ void main() {
         ),
         textDirection: TextDirection.ltr,
       ),
-    );
+    )));
 
     final month11 = find.text('Nov');
     expect(month11, findsNWidgets(4));
@@ -184,21 +213,23 @@ void main() {
         color: Colors.grey,
       );
 
-      await tester.pumpWidget(
-        Directionality(
-          child: HorizontalCalendar(
-            firstDate: DateTime(2019, 11, 17),
-            lastDate: DateTime(2019, 11, 19),
-            defaultDecoration: dateDecoration,
-            selectedDecoration: selectedDateDecoration,
-            initialSelectedDates: [DateTime(2019, 11, 18)],
-            disabledDecoration: disabledDateDecoration,
-            isDateDisabled: (date) =>
-                date.compareTo(DateTime(2019, 11, 19)) == 0,
+      await tester.pumpWidget(MaterialApp(
+        home: Scaffold(
+          body: Directionality(
+            child: HorizontalCalendar(
+              firstDate: DateTime(2019, 11, 17),
+              lastDate: DateTime(2019, 11, 19),
+              defaultDecoration: dateDecoration,
+              selectedDecoration: selectedDateDecoration,
+              initialSelectedDates: [DateTime(2019, 11, 18)],
+              disabledDecoration: disabledDateDecoration,
+              isDateDisabled: (date) =>
+                  date.compareTo(DateTime(2019, 11, 19)) == 0,
+            ),
+            textDirection: TextDirection.ltr,
           ),
-          textDirection: TextDirection.ltr,
         ),
-      );
+      ));
 
       WidgetPredicate datePredicate = (Widget widget) =>
           widget is Container && widget.decoration == dateDecoration;
@@ -228,22 +259,26 @@ void main() {
       );
 
       await tester.pumpWidget(
-        Directionality(
-          child: HorizontalCalendar(
-            firstDate: DateTime(2019, 11, 17),
-            lastDate: DateTime(2019, 11, 19),
-            defaultDecoration: dateDecoration,
-            selectedDecoration: selectedDateDecoration,
-            initialSelectedDates: [DateTime(2019, 11, 18)],
-            disabledDecoration: disabledDateDecoration,
-            isDateDisabled: (date) =>
-                date.compareTo(DateTime(2019, 11, 19)) == 0,
-            onDateSelected: (date) => print("S:$date"),
-            onDateUnSelected: (date) => print("U:$date"),
-            onDateLongTap: (date) => print("L:$date"),
-            maxSelectedDateCount: 2,
+        MaterialApp(
+          home: Scaffold(
+            body: Directionality(
+              child: HorizontalCalendar(
+                firstDate: DateTime(2019, 11, 17),
+                lastDate: DateTime(2019, 11, 19),
+                defaultDecoration: dateDecoration,
+                selectedDecoration: selectedDateDecoration,
+                initialSelectedDates: [DateTime(2019, 11, 18)],
+                disabledDecoration: disabledDateDecoration,
+                isDateDisabled: (date) =>
+                    date.compareTo(DateTime(2019, 11, 19)) == 0,
+                onDateSelected: (date) => print("S:$date"),
+                onDateUnSelected: (date) => print("U:$date"),
+                onDateLongTap: (date) => print("L:$date"),
+                maxSelectedDateCount: 2,
+              ),
+              textDirection: TextDirection.ltr,
+            ),
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -289,21 +324,25 @@ void main() {
       );
 
       await tester.pumpWidget(
-        Directionality(
-          child: HorizontalCalendar(
-            firstDate: DateTime(2019, 11, 17),
-            lastDate: DateTime(2019, 11, 19),
-            defaultDecoration: dateDecoration,
-            selectedDecoration: selectedDateDecoration,
-            disabledDecoration: disabledDateDecoration,
-            isDateDisabled: (date) =>
-                date.compareTo(DateTime(2019, 11, 19)) == 0,
-            onDateSelected: (date) => print("S:$date"),
-            onDateUnSelected: (date) => print("U:$date"),
-            onDateLongTap: (date) => print("L:$date"),
-            maxSelectedDateCount: 1,
+        MaterialApp(
+          home: Scaffold(
+            body: Directionality(
+              child: HorizontalCalendar(
+                firstDate: DateTime(2019, 11, 17),
+                lastDate: DateTime(2019, 11, 19),
+                defaultDecoration: dateDecoration,
+                selectedDecoration: selectedDateDecoration,
+                disabledDecoration: disabledDateDecoration,
+                isDateDisabled: (date) =>
+                    date.compareTo(DateTime(2019, 11, 19)) == 0,
+                onDateSelected: (date) => print("S:$date"),
+                onDateUnSelected: (date) => print("U:$date"),
+                onDateLongTap: (date) => print("L:$date"),
+                maxSelectedDateCount: 1,
+              ),
+              textDirection: TextDirection.ltr,
+            ),
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -350,19 +389,23 @@ void main() {
       );
 
       await tester.pumpWidget(
-        Directionality(
-          child: HorizontalCalendar(
-            firstDate: DateTime(2019, 11, 17),
-            lastDate: DateTime(2019, 11, 19),
-            defaultDecoration: dateDecoration,
-            selectedDecoration: selectedDateDecoration,
-            disabledDecoration: disabledDateDecoration,
-            onDateSelected: (date) => print("S:$date"),
-            onDateUnSelected: (date) => print("U:$date"),
-            onDateLongTap: (date) => print("L:$date"),
-            maxSelectedDateCount: 2,
+        MaterialApp(
+          home: Scaffold(
+            body: Directionality(
+              child: HorizontalCalendar(
+                firstDate: DateTime(2019, 11, 17),
+                lastDate: DateTime(2019, 11, 19),
+                defaultDecoration: dateDecoration,
+                selectedDecoration: selectedDateDecoration,
+                disabledDecoration: disabledDateDecoration,
+                onDateSelected: (date) => print("S:$date"),
+                onDateUnSelected: (date) => print("U:$date"),
+                onDateLongTap: (date) => print("L:$date"),
+                maxSelectedDateCount: 2,
+              ),
+              textDirection: TextDirection.ltr,
+            ),
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -402,23 +445,27 @@ void main() {
       );
 
       await tester.pumpWidget(
-        Directionality(
-          child: HorizontalCalendar(
-            firstDate: DateTime(2020, 03, 04),
-            lastDate: DateTime(2020, 03, 08),
-            defaultDecoration: dateDecoration,
-            selectedDecoration: selectedDateDecoration,
-            disabledDecoration: disabledDateDecoration,
-            onDateSelected: (date) => print("S:$date"),
-            onDateUnSelected: (date) => print("U:$date"),
-            onDateLongTap: (date) => print("L:$date"),
-            minSelectedDateCount: 1,
-            maxSelectedDateCount: 1,
-            initialSelectedDates: [
-              DateTime(2020, 03, 05),
-            ],
+        MaterialApp(
+          home: Scaffold(
+            body: Directionality(
+              child: HorizontalCalendar(
+                firstDate: DateTime(2020, 03, 04),
+                lastDate: DateTime(2020, 03, 08),
+                defaultDecoration: dateDecoration,
+                selectedDecoration: selectedDateDecoration,
+                disabledDecoration: disabledDateDecoration,
+                onDateSelected: (date) => print("S:$date"),
+                onDateUnSelected: (date) => print("U:$date"),
+                onDateLongTap: (date) => print("L:$date"),
+                minSelectedDateCount: 1,
+                maxSelectedDateCount: 1,
+                initialSelectedDates: [
+                  DateTime(2020, 03, 05),
+                ],
+              ),
+              textDirection: TextDirection.ltr,
+            ),
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -443,18 +490,22 @@ void main() {
     'onDateSelected callback should be invoked',
     (WidgetTester tester) async {
       await tester.pumpWidget(
-        Directionality(
-          child: HorizontalCalendar(
-            firstDate: DateTime(2019, 11, 17),
-            lastDate: DateTime(2019, 11, 19),
-            initialSelectedDates: [DateTime(2019, 11, 18)],
-            isDateDisabled: (date) =>
-                date.compareTo(DateTime(2019, 11, 19)) == 0,
-            onDateSelected: (date) => print("S:$date"),
-            onDateUnSelected: (date) => print("U:$date"),
-            onDateLongTap: (date) => print("L:$date"),
+        MaterialApp(
+          home: Scaffold(
+            body: Directionality(
+              child: HorizontalCalendar(
+                firstDate: DateTime(2019, 11, 17),
+                lastDate: DateTime(2019, 11, 19),
+                initialSelectedDates: [DateTime(2019, 11, 18)],
+                isDateDisabled: (date) =>
+                    date.compareTo(DateTime(2019, 11, 19)) == 0,
+                onDateSelected: (date) => print("S:$date"),
+                onDateUnSelected: (date) => print("U:$date"),
+                onDateLongTap: (date) => print("L:$date"),
+              ),
+              textDirection: TextDirection.ltr,
+            ),
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -470,18 +521,22 @@ void main() {
     'onDateUnSelected callback should be invoked',
     (WidgetTester tester) async {
       await tester.pumpWidget(
-        Directionality(
-          child: HorizontalCalendar(
-            firstDate: DateTime(2019, 11, 17),
-            lastDate: DateTime(2019, 11, 19),
-            initialSelectedDates: [DateTime(2019, 11, 18)],
-            isDateDisabled: (date) =>
-                date.compareTo(DateTime(2019, 11, 19)) == 0,
-            onDateSelected: (date) => print("S:$date"),
-            onDateUnSelected: (date) => print("U:$date"),
-            onDateLongTap: (date) => print("L:$date"),
+        MaterialApp(
+          home: Scaffold(
+            body: Directionality(
+              child: HorizontalCalendar(
+                firstDate: DateTime(2019, 11, 17),
+                lastDate: DateTime(2019, 11, 19),
+                initialSelectedDates: [DateTime(2019, 11, 18)],
+                isDateDisabled: (date) =>
+                    date.compareTo(DateTime(2019, 11, 19)) == 0,
+                onDateSelected: (date) => print("S:$date"),
+                onDateUnSelected: (date) => print("U:$date"),
+                onDateLongTap: (date) => print("L:$date"),
+              ),
+              textDirection: TextDirection.ltr,
+            ),
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -497,18 +552,22 @@ void main() {
     'onDateLongTap callback should be invoked',
     (WidgetTester tester) async {
       await tester.pumpWidget(
-        Directionality(
-          child: HorizontalCalendar(
-            firstDate: DateTime(2019, 11, 17),
-            lastDate: DateTime(2019, 11, 19),
-            initialSelectedDates: [DateTime(2019, 11, 18)],
-            isDateDisabled: (date) =>
-                date.compareTo(DateTime(2019, 11, 19)) == 0,
-            onDateSelected: (date) => print("S:$date"),
-            onDateUnSelected: (date) => print("U:$date"),
-            onDateLongTap: (date) => print("L:$date"),
+        MaterialApp(
+          home: Scaffold(
+            body: Directionality(
+              child: HorizontalCalendar(
+                firstDate: DateTime(2019, 11, 17),
+                lastDate: DateTime(2019, 11, 19),
+                initialSelectedDates: [DateTime(2019, 11, 18)],
+                isDateDisabled: (date) =>
+                    date.compareTo(DateTime(2019, 11, 19)) == 0,
+                onDateSelected: (date) => print("S:$date"),
+                onDateUnSelected: (date) => print("U:$date"),
+                onDateLongTap: (date) => print("L:$date"),
+              ),
+              textDirection: TextDirection.ltr,
+            ),
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 
@@ -524,16 +583,20 @@ void main() {
     'onMaxDateSelectionReached callback should be invoked',
     (WidgetTester tester) async {
       await tester.pumpWidget(
-        Directionality(
-          child: HorizontalCalendar(
-            firstDate: DateTime(2019, 11, 17),
-            lastDate: DateTime(2019, 11, 19),
-            isDateDisabled: (date) =>
-                date.compareTo(DateTime(2019, 11, 19)) == 0,
-            onMaxDateSelectionReached: () => print("MAX_SELCTION"),
-            maxSelectedDateCount: 0,
+        MaterialApp(
+          home: Scaffold(
+            body: Directionality(
+              child: HorizontalCalendar(
+                firstDate: DateTime(2019, 11, 17),
+                lastDate: DateTime(2019, 11, 19),
+                isDateDisabled: (date) =>
+                    date.compareTo(DateTime(2019, 11, 19)) == 0,
+                onMaxDateSelectionReached: () => print("MAX_SELCTION"),
+                maxSelectedDateCount: 0,
+              ),
+              textDirection: TextDirection.ltr,
+            ),
           ),
-          textDirection: TextDirection.ltr,
         ),
       );
 

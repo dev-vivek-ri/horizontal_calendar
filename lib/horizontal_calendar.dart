@@ -101,11 +101,18 @@ class _HorizontalCalendarState extends State<HorizontalCalendar> {
   @override
   void initState() {
     super.initState();
+
     allDates.addAll(getDateList(widget.firstDate!, widget.lastDate!));
-    selectedDates.addAll(widget.initialSelectedDates!.map((toDateMonthYear)));
-    scrollController = widget.scrollController ?? ItemScrollController();
-     SchedulerBinding.instance.addPostFrameCallback((_) {
-     if (scrollController != null) scrollController!.jumpTo(index: findPosition());
+    if (widget.initialSelectedDates != null)
+      selectedDates.addAll(widget.initialSelectedDates!.map((toDateMonthYear)));
+    if (widget.scrollController != null) {
+      scrollController = widget.scrollController;
+    } else {
+      scrollController = ItemScrollController();
+    }
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      if (scrollController != null && selectedDates.isNotEmpty)
+        scrollController!.jumpTo(index: findPosition());
     });
   }
 
@@ -123,7 +130,6 @@ class _HorizontalCalendarState extends State<HorizontalCalendar> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       height: widget.height,
       child: Center(
