@@ -1,3 +1,5 @@
+## [2.1.1] 
+- Test Coverage
 ## [2.1.0] 
 - Scroll to initial selected date
 
