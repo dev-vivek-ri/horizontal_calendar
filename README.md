@@ -1,7 +1,9 @@
 # horizontal_calendar
-[![Build Status](https://travis-ci.org/solutelabs/horizontal_calendar.svg?branch=master)](https://travis-ci.org/solutelabs/horizontal_calendar) [![codecov](https://codecov.io/gh/solutelabs/horizontal_calendar/branch/master/graph/badge.svg)](https://codecov.io/gh/solutelabs/horizontal_calendar) [![SoluteLabs](https://img.shields.io/badge/madeby-solutelabs-blue)](https://www.solutelabs.com/) [![Twitter Follow](https://img.shields.io/twitter/follow/solutelabs?label=Follow%20SoluteLabs&style=social)](https://twitter.com/solutelabs)
+[![codecov](https://codecov.io/gh/solutelabs/horizontal_calendar/branch/master/graph/badge.svg)](https://app.codecov.io/gh/dev-vivek-ri/horizontal_calendar) [![SoluteLabs](https://img.shields.io/badge/madeby-solutelabs-blue)](https://www.devmonkey.in/) [![Twitter Follow](https://img.shields.io/twitter/follow/solutelabs?label=Follow%20SoluteLabs&style=social)](https://twitter.com/solutelabs)
 
 Easy to use, highly customizable horizontal calendar.
+
+Forked from solutelabs
 
 ## Features
 
