@@ -1,5 +1,6 @@
 # horizontal_calendar
-[![codecov](https://codecov.io/gh/solutelabs/horizontal_calendar/branch/master/graph/badge.svg)](https://app.codecov.io/gh/dev-vivek-ri/horizontal_calendar) [![SoluteLabs](https://img.shields.io/badge/madeby-solutelabs-blue)](https://www.devmonkey.in/) [![Twitter Follow](https://img.shields.io/twitter/follow/solutelabs?label=Follow%20SoluteLabs&style=social)](https://twitter.com/solutelabs)
+
+[![codecov](https://codecov.io/gh/solutelabs/horizontal_calendar/branch/master/graph/badge.svg)](https://app.codecov.io/gh/dev-vivek-ri/horizontal_calendar) [![devMonkey](https://img.shields.io/badge/made%20by-devMonkey-brightgreen)](https://www.devmonkey.in/) [![Twitter Follow](https://img.shields.io/badge/Twitter-devMonkey-blue)](https://twitter.com/devMonkey1)
 
 Easy to use, highly customizable horizontal calendar.
 
@@ -26,7 +27,7 @@ Forked from solutelabs
 - [x] Disabled date cell [Decoration](https://api.flutter.dev/flutter/painting/Decoration-class.html)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/solutelabs/horizontal_calendar/master/images/demo.gif">
+  <img src="https://github.com/dev-vivek-ri/horizontal_calendar/blob/master/images/demo.gif?raw=true">
 </p>
 
 ## Properties
@@ -68,12 +69,13 @@ Forked from solutelabs
 To get the initial control over the host app, one can pass the UniqueKey.
 
 e.g.
+
 ```dart
     HorizontalCalendar(
       key: UniqueKey(),
     );
-``` 
+```
 
 ## Issues and Feedback
 
-* For any issue and feedback please [create issue](https://github.com/solutelabs/horizontal_calendar/issues/new) on Github repo.
+- For any issue and feedback please [create issue](https://github.com/dev-vivek-ri/horizontal_calendar/issues/new) on Github repo.

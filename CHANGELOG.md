@@ -1,17 +1,23 @@
-## [2.1.1] 
+## [2.1.1]
+
 - Test Coverage
-## [2.1.0] 
+
+## [2.1.0]
+
 - Scroll to initial selected date
 
-## [2.0.0] 
+## [2.0.0]
+
 - Upgraded to null safety
 
-## [1.0.2] 
+## [1.0.2]
+
 - Added Min Selected date count (Author [dariof28](https://github.com/dariof28))
 - Added Ability to show month and dayOfWeek labels in uppercase (Author [dariof28](https://github.com/dariof28))
 - Upgraded Flutter version to v1.17.2
 
-## [1.0.1] 
+## [1.0.1]
+
 - Changed intl from main to transitive dependency to avoid version conflicts.
 
 ## [1.0.0] Initial Release
