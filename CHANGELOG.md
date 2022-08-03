@@ -1,3 +1,6 @@
+## [2.1.0] 
+- Scroll to initial selected date
+
 ## [2.0.0] 
 - Upgraded to null safety
 

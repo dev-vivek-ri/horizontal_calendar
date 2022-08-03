@@ -1,6 +1,6 @@
 name: horizontal_calendar_view_widget
 description: Easy to use, highly customizable horizontal calendar. Single or up to x days selection, with Internationalization support.
-version: 2.0.0
+version: 2.1.0
 homepage: https://github.com/dev-vivek-ri/horizontal_calendar
 
 environment:
