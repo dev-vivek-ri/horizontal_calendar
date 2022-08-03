@@ -1,8 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:horizontal_calendar_widget/date_helper.dart';
-import 'package:horizontal_calendar_widget/horizontal_calendar.dart';
+import 'package:horizontal_calendar_view_widget/date_helper.dart';
+import 'package:horizontal_calendar_view_widget/horizontal_calendar.dart';
 import 'package:intl/intl.dart';
 
 import 'components/components.dart';
@@ -85,7 +83,7 @@ class _DemoWidgetState extends State<DemoWidget> {
   }
 
   List<DateTime> feedInitialSelectedDates(int target, int calendarDays) {
-    List<DateTime> selectedDates = List();
+    List<DateTime> selectedDates = [];
 
     for (int i = 0; i < calendarDays; i++) {
       if (selectedDates.length == target) {
@@ -229,7 +227,7 @@ class _DemoWidgetState extends State<DemoWidget> {
                   },
                 ),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('Update'),
                 onPressed: () {
                   setState(() {
@@ -341,7 +339,7 @@ class _DemoWidgetState extends State<DemoWidget> {
                           },
                         ),
                       ),
-                      RaisedButton(
+                      ElevatedButton(
                         child: Text('Add Labels'),
                         onPressed: () {
                           setState(() {
@@ -444,7 +442,7 @@ class _DemoWidgetState extends State<DemoWidget> {
   }
 
   void showMessage(String message) {
-    Scaffold.of(context).showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message)),
     );
   }

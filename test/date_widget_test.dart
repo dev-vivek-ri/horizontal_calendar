@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:horizontal_calendar_widget/date_helper.dart';
-import 'package:horizontal_calendar_widget/date_widget.dart';
+import 'package:horizontal_calendar_view_widget/date_helper.dart';
+import 'package:horizontal_calendar_view_widget/date_widget.dart';
 
 void main() {
   final defaultLabelOrder = [
@@ -231,8 +231,8 @@ void main() {
           if (children.length < 2) {
             return false;
           }
-          Text firstText = children[0];
-          Text secondText = children[1];
+          Text firstText = children[0] as Text;
+          Text secondText = children[1] as Text;
           if (firstText.data == "17" && secondText.data == "Nov") {
             return true;
           }

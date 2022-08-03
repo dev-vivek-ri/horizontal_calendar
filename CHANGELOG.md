@@ -1,3 +1,6 @@
+## [2.0.0] 
+- Upgraded to null safety
+
 ## [1.0.2] 
 - Added Min Selected date count (Author [dariof28](https://github.com/dariof28))
 - Added Ability to show month and dayOfWeek labels in uppercase (Author [dariof28](https://github.com/dariof28))

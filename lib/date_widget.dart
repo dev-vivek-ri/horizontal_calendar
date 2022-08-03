@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:horizontal_calendar_widget/date_helper.dart';
+import 'package:horizontal_calendar_view_widget/date_helper.dart';
 import 'package:intl/intl.dart';
 
 class DateWidget extends StatelessWidget {
@@ -7,30 +7,30 @@ class DateWidget extends StatelessWidget {
   final defaultMonthFormat = 'MMM';
   final defaultWeekDayFormat = 'EEE';
 
-  final DateTime date;
-  final TextStyle monthTextStyle;
-  final TextStyle selectedMonthTextStyle;
-  final String monthFormat;
-  final TextStyle dateTextStyle;
-  final TextStyle selectedDateTextStyle;
-  final String dateFormat;
-  final TextStyle weekDayTextStyle;
-  final TextStyle selectedWeekDayTextStyle;
-  final String weekDayFormat;
-  final VoidCallback onTap;
-  final VoidCallback onLongTap;
-  final Decoration defaultDecoration;
-  final Decoration selectedDecoration;
-  final Decoration disabledDecoration;
-  final bool isSelected;
-  final bool isDisabled;
-  final EdgeInsetsGeometry padding;
-  final List<LabelType> labelOrder;
-  final bool isLabelUppercase;
+  final DateTime? date;
+  final TextStyle? monthTextStyle;
+  final TextStyle? selectedMonthTextStyle;
+  final String? monthFormat;
+  final TextStyle? dateTextStyle;
+  final TextStyle? selectedDateTextStyle;
+  final String? dateFormat;
+  final TextStyle? weekDayTextStyle;
+  final TextStyle? selectedWeekDayTextStyle;
+  final String? weekDayFormat;
+  final VoidCallback? onTap;
+  final VoidCallback? onLongTap;
+  final Decoration? defaultDecoration;
+  final Decoration? selectedDecoration;
+  final Decoration? disabledDecoration;
+  final bool? isSelected;
+  final bool? isDisabled;
+  final EdgeInsetsGeometry? padding;
+  final List<LabelType>? labelOrder;
+  final bool? isLabelUppercase;
 
   const DateWidget({
-    Key key,
-    @required this.date,
+    Key? key,
+    required this.date,
     this.onTap,
     this.onLongTap,
     this.isSelected = false,
@@ -57,34 +57,36 @@ class DateWidget extends StatelessWidget {
     final titleStyle = Theme.of(context).textTheme.headline6;
     final subTitleStyle = Theme.of(context).textTheme.subtitle2;
 
-    final monthStyle = isSelected
+    final monthStyle = isSelected!
         ? selectedMonthTextStyle ?? monthTextStyle ?? subTitleStyle
         : monthTextStyle ?? subTitleStyle;
-    final dateStyle = isSelected
+    final dateStyle = isSelected!
         ? selectedDateTextStyle ?? dateTextStyle ?? titleStyle
         : dateTextStyle ?? titleStyle;
-    final dayStyle = isSelected
+    final dayStyle = isSelected!
         ? selectedWeekDayTextStyle ?? weekDayTextStyle ?? subTitleStyle
         : weekDayTextStyle ?? subTitleStyle;
 
     return GestureDetector(
-      onTap: isDisabled ? null : onTap,
-      onLongPress: isDisabled ? null : onLongTap,
+      onTap: isDisabled! ? null : onTap,
+      onLongPress: isDisabled! ? null : onLongTap,
       child: Container(
-        decoration: isSelected
+        decoration: isSelected!
             ? selectedDecoration
-            : isDisabled ? disabledDecoration : defaultDecoration,
+            : isDisabled!
+                ? disabledDecoration
+                : defaultDecoration,
         child: Padding(
-          padding: padding,
+          padding: padding!,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ...labelOrder.map((type) {
+              ...labelOrder!.map((type) {
                 Text text;
                 switch (type) {
                   case LabelType.month:
                     text = Text(
-                      isLabelUppercase
+                      isLabelUppercase!
                           ? _monthLabel().toUpperCase()
                           : _monthLabel(),
                       style: monthStyle,
@@ -92,13 +94,13 @@ class DateWidget extends StatelessWidget {
                     break;
                   case LabelType.date:
                     text = Text(
-                      DateFormat(dateFormat ?? defaultDateFormat).format(date),
+                      DateFormat(dateFormat ?? defaultDateFormat).format(date!),
                       style: dateStyle,
                     );
                     break;
                   case LabelType.weekday:
                     text = Text(
-                      isLabelUppercase
+                      isLabelUppercase!
                           ? _weekDayLabel().toUpperCase()
                           : _weekDayLabel(),
                       style: dayStyle,
@@ -115,10 +117,10 @@ class DateWidget extends StatelessWidget {
   }
 
   String _monthLabel() {
-    return DateFormat(monthFormat ?? defaultMonthFormat).format(date);
+    return DateFormat(monthFormat ?? defaultMonthFormat).format(date!);
   }
 
   String _weekDayLabel() {
-    return DateFormat(weekDayFormat ?? defaultWeekDayFormat).format(date);
+    return DateFormat(weekDayFormat ?? defaultWeekDayFormat).format(date!);
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:horizontal_calendar_widget/date_helper.dart';
+import 'package:horizontal_calendar_view_widget/date_helper.dart';
 
 void main() {
   test(
@@ -19,7 +19,8 @@ void main() {
       _toDateMonthYear(DateTime.now()),
       _toDateMonthYear(DateTime.now().add(Duration(days: 1))),
     ];
-    final list = getDateList(DateTime.now(), DateTime.now().add(Duration(days: 1)));
+    final list =
+        getDateList(DateTime.now(), DateTime.now().add(Duration(days: 1)));
     expect(list, expected);
   });
 

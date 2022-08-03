@@ -1,45 +1,45 @@
 library horizontal_calendar;
 
 import 'package:flutter/material.dart';
-import 'package:horizontal_calendar_widget/date_helper.dart';
-import 'package:horizontal_calendar_widget/date_widget.dart';
+import 'package:horizontal_calendar_view_widget/date_helper.dart';
+import 'package:horizontal_calendar_view_widget/date_widget.dart';
 
 typedef DateBuilder = bool Function(DateTime dateTime);
 
 typedef DateSelectionCallBack = void Function(DateTime dateTime);
 
 class HorizontalCalendar extends StatefulWidget {
-  final DateTime firstDate;
-  final DateTime lastDate;
-  final double height;
-  final TextStyle monthTextStyle;
-  final TextStyle selectedMonthTextStyle;
-  final String monthFormat;
-  final TextStyle dateTextStyle;
-  final TextStyle selectedDateTextStyle;
-  final String dateFormat;
-  final TextStyle weekDayTextStyle;
-  final TextStyle selectedWeekDayTextStyle;
-  final String weekDayFormat;
-  final DateSelectionCallBack onDateSelected;
-  final DateSelectionCallBack onDateLongTap;
-  final DateSelectionCallBack onDateUnSelected;
-  final VoidCallback onMaxDateSelectionReached;
-  final Decoration defaultDecoration;
-  final Decoration selectedDecoration;
-  final Decoration disabledDecoration;
-  final DateBuilder isDateDisabled;
-  final List<DateTime> initialSelectedDates;
-  final ScrollController scrollController;
-  final double spacingBetweenDates;
-  final EdgeInsetsGeometry padding;
-  final List<LabelType> labelOrder;
-  final int minSelectedDateCount;
-  final int maxSelectedDateCount;
-  final bool isLabelUppercase;
+  final DateTime? firstDate;
+  final DateTime? lastDate;
+  final double? height;
+  final TextStyle? monthTextStyle;
+  final TextStyle? selectedMonthTextStyle;
+  final String? monthFormat;
+  final TextStyle? dateTextStyle;
+  final TextStyle? selectedDateTextStyle;
+  final String? dateFormat;
+  final TextStyle? weekDayTextStyle;
+  final TextStyle? selectedWeekDayTextStyle;
+  final String? weekDayFormat;
+  final DateSelectionCallBack? onDateSelected;
+  final DateSelectionCallBack? onDateLongTap;
+  final DateSelectionCallBack? onDateUnSelected;
+  final VoidCallback? onMaxDateSelectionReached;
+  final Decoration? defaultDecoration;
+  final Decoration? selectedDecoration;
+  final Decoration? disabledDecoration;
+  final DateBuilder? isDateDisabled;
+  final List<DateTime>? initialSelectedDates;
+  final ScrollController? scrollController;
+  final double? spacingBetweenDates;
+  final EdgeInsetsGeometry? padding;
+  final List<LabelType>? labelOrder;
+  final int? minSelectedDateCount;
+  final int? maxSelectedDateCount;
+  final bool? isLabelUppercase;
 
   HorizontalCalendar({
-    Key key,
+    Key? key,
     this.height = 100,
     @required this.firstDate,
     @required this.lastDate,
@@ -75,15 +75,15 @@ class HorizontalCalendar extends StatefulWidget {
   })  : assert(firstDate != null),
         assert(lastDate != null),
         assert(
-          toDateMonthYear(lastDate) == toDateMonthYear(firstDate) ||
+          toDateMonthYear(lastDate!) == toDateMonthYear(firstDate!) ||
               toDateMonthYear(lastDate).isAfter(toDateMonthYear(firstDate)),
         ),
         assert(labelOrder != null && labelOrder.isNotEmpty,
             'Label Order should not be empty'),
-        assert(minSelectedDateCount <= maxSelectedDateCount),
-        assert(minSelectedDateCount <= initialSelectedDates.length,
+        assert(minSelectedDateCount! <= maxSelectedDateCount!),
+        assert(minSelectedDateCount! <= initialSelectedDates!.length,
             "You must provide at least $minSelectedDateCount initialSelectedDates"),
-        assert(maxSelectedDateCount >= initialSelectedDates.length,
+        assert(maxSelectedDateCount! >= initialSelectedDates!.length,
             "You can't provide more than $maxSelectedDateCount initialSelectedDates"),
         super(key: key);
 
@@ -98,8 +98,8 @@ class _HorizontalCalendarState extends State<HorizontalCalendar> {
   @override
   void initState() {
     super.initState();
-    allDates.addAll(getDateList(widget.firstDate, widget.lastDate));
-    selectedDates.addAll(widget.initialSelectedDates.map((toDateMonthYear)));
+    allDates.addAll(getDateList(widget.firstDate!, widget.lastDate!));
+    selectedDates.addAll(widget.initialSelectedDates!.map((toDateMonthYear)));
   }
 
   @override
@@ -120,7 +120,7 @@ class _HorizontalCalendarState extends State<HorizontalCalendar> {
                   padding: widget.padding,
                   isSelected: selectedDates.contains(date),
                   isDisabled: widget.isDateDisabled != null
-                      ? widget.isDateDisabled(date)
+                      ? widget.isDateDisabled!(date)
                       : false,
                   date: date,
                   monthTextStyle: widget.monthTextStyle,
@@ -145,26 +145,26 @@ class _HorizontalCalendarState extends State<HorizontalCalendar> {
                       } else if (widget.maxSelectedDateCount ==
                           selectedDates.length) {
                         if (widget.onMaxDateSelectionReached != null) {
-                          widget.onMaxDateSelectionReached();
+                          widget.onMaxDateSelectionReached!();
                         }
                         return;
                       }
 
                       selectedDates.add(date);
                       if (widget.onDateSelected != null) {
-                        widget.onDateSelected(date);
+                        widget.onDateSelected!(date);
                       }
                     } else if (selectedDates.length >
-                        widget.minSelectedDateCount) {
+                        widget.minSelectedDateCount!) {
                       final isRemoved = selectedDates.remove(date);
                       if (isRemoved && widget.onDateUnSelected != null) {
-                        widget.onDateUnSelected(date);
+                        widget.onDateUnSelected!(date);
                       }
                     }
                     setState(() {});
                   },
                   onLongTap: () => widget.onDateLongTap != null
-                      ? widget.onDateLongTap(date)
+                      ? widget.onDateLongTap!(date)
                       : null,
                 ),
                 SizedBox(width: widget.spacingBetweenDates),

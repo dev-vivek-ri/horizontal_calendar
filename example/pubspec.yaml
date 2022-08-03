@@ -1,6 +1,8 @@
 name: example
 description: A new Flutter project.
 
+publish_to: 'none'
+
 version: 1.0.0+1
 
 environment:
@@ -9,8 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.2
-  horizontal_calendar_widget:
+  cupertino_icons: ^1.0.5
+  horizontal_calendar_view_widget:
     path: ../
 
 dev_dependencies:
